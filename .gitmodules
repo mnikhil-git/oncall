@@ -1,0 +1,18 @@
+[submodule "vendor/Silex"]
+	path = vendor/Silex
+	url = git://github.com/fabpot/Silex.git
+[submodule "vendor/symfony"]
+	path = vendor/symfony
+	url = git://github.com/symfony/symfony.git
+[submodule "vendor/Twig"]
+	path = vendor/Twig
+	url = git://github.com/fabpot/Twig.git
+[submodule "vendor/swiftmailer"]
+	path = vendor/swiftmailer
+	url = git://github.com/swiftmailer/swiftmailer.git
+[submodule "vendor/doctrine2"]
+	path = vendor/doctrine2
+	url = git://github.com/doctrine/doctrine2.git
+[submodule "vendor/nutwerk-orm-extension"]
+	path = vendor/nutwerk-orm-extension
+	url = git://github.com/mjakubowski/nutwerk-orm-extension.git
