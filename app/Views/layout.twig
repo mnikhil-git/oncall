@@ -27,9 +27,9 @@
                 <div class="container">
                     <a class="brand" href="#">Project name</a>
                     <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="{{ app.request.baseUrl }}">Home</a></li>
+                        <li><a href="{{ app.request.baseUrl }}/hello/Eric">Hello</a></li>
+                        <li><a href="{{ app.request.baseUrl }}/users">Users</a></li>
                     </ul>
                 </div>
             </div>
