@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h1>Users:</h1>
+        <table>
+            <tr>
+                <th>Id</th><th>Username</th><th>Password</th>
+            </tr>
+            {% if users %}
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username|e }}</td>
+                <td>{{ user.password|e }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr><td colspan="3">No Users Found...</td></tr>
+            {% endif %}
+        </table>
+    </body>
+</html>
