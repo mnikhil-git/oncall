@@ -14,10 +14,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver' => 'pdo_mysql',
-        'host' => 'localhost',
-        'dbname' => 'oncall',
+        'host' => '10.120.31.21',
+        'dbname' => 'ehutson',
         'user' => 'root',
-        'password' => 'root'
+        'password' => ''
     ),
     'db.dbal.class_path' => __DIR__ . '/../vendor/doctrine2/lib/vendor/doctrine-dbal/lib',
     'db.common.class_path' => __DIR__ . '/../vendor/doctrine2/lib/vendor/doctrine-common/lib',
@@ -33,7 +33,7 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
     'db.orm.entities' => array(array(
             'type' => 'annotation',
             'path' => __DIR__ . '/../app',
-            'namespace' => 'Entities',
+            'namespace' => 'Entity',
     )),
 ));
 
@@ -54,7 +54,7 @@ $app->get('/users', function() use ($app)
         {
             //$sql = "select * from user";
             //$users = $app['db']->fetchAll($sql);
-            $users = $app['db.orm.em']->getRepository('Entity\User')->findAll();
+            $users = $app['db.orm.em']->getRepository('\Entity\User')->findAll();
             return $app['twig']->render('users.twig.phtml', array('users' => $users));
         });
 

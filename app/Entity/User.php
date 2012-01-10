@@ -1,6 +1,6 @@
 <?php
 
-namespace Entities;
+namespace Entity;
 
 /** 
  * @Entity(repositoryClass="Entity\Repository\UserRepository") 
@@ -16,7 +16,7 @@ class User
     private $id;
 
     /** @Column(type="string", length=255) */
-    private $name;
+    private $username;
 
     /** @Column(type="string", length=255) */
     private $password;
@@ -26,14 +26,14 @@ class User
         return $this->id;
     }
 
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
     }
 
     public function getPassword()

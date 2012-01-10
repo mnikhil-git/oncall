@@ -26,10 +26,10 @@ $config->setProxyNamespace('Proxies');
 
 $connectionOptions = array(
     'driver' => 'pdo_mysql',
-    'host' => 'localhost',
-    'dbname' => 'oncall',
+    'host' => '10.120.31.21',
+    'dbname' => 'ehutson',
     'user' => 'root',
-    'password' => 'root'
+    'password' => ''
 );
 
 $em = \Doctrine\ORM\EntityManager::create($connectionOptions, $config);
