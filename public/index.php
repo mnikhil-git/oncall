@@ -41,8 +41,7 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
 
 $app->get('/', function() use ($app)
         {
-            die(var_dump($app));
-            return "this is the index...";
+            return $app['twig']->render('index.twig', array());
         });
 
 $app->get('/hello/{name}', function ($name) use ($app)
@@ -53,8 +52,6 @@ $app->get('/hello/{name}', function ($name) use ($app)
 
 $app->get('/users', function() use ($app)
         {
-            //$sql = "select * from user";
-            //$users = $app['db']->fetchAll($sql);
             $users = $app['db.orm.em']->getRepository('\Entity\User')->findAll();
             return $app['twig']->render('users.twig', array('users' => $users));
         });
