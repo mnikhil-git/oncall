@@ -4,6 +4,8 @@ require_once __DIR__ . '/../vendor/Silex/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../app/Views',
     'twig.class_path' => __DIR__ . '/../vendor/Twig/lib',
@@ -41,7 +43,12 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
 
 $app->get('/', function() use ($app)
         {
-            return $app['twig']->render('index.twig', array());
+            if (null === $count = $app['session']->get('count'))
+            {
+                $count = 0;
+            }
+            $app['session']->set('count', ++$count);
+            return $app['twig']->render('index.twig', array('count' => $count));
         });
 
 $app->get('/hello/{name}', function ($name) use ($app)
