@@ -46,8 +46,7 @@ $app->get('/', function() use ($app)
 
 $app->get('/hello/{name}', function ($name) use ($app)
         {
-            $data = $app['twig']->render('hello.twig', array('name' => $name));
-            return $data;
+            return $app['twig']->render('hello.twig', array('name' => $name));
         });
 
 $app->get('/users', function() use ($app)
