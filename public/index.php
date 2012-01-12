@@ -39,7 +39,15 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
     )),
 ));
 
+$app['autoloader']->registerNamespace('Auth', __DIR__ . '/../vendor/Auth/lib');
+$app->register(new Auth\Provider\AuthServiceProvider(), array(
+    'auth.adapterName' => 'DoctrineAdapter',
+    'auth.entityName' => '\Entity\User',
+    'auth.column.username' => 'username',
+    'auth.column.password' => 'password'
+));
 
+//die(var_dump($app['auth']));
 
 $app->get('/', function() use ($app)
         {
@@ -62,4 +70,9 @@ $app->get('/users', function() use ($app)
             return $app['twig']->render('users.twig', array('users' => $users));
         });
 
+
+$app->match('/login/', function() use ($app)
+        {
+            
+        })->method('GET|POST');
 $app->run();

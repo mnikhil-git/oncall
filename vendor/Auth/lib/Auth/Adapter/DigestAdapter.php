@@ -1,11 +1,11 @@
 <?php
 
-namespace Auth;
+namespace Auth\Adapter;
 
 use Auth\AuthenticationException;
 use Auth\Result;
 
-class Digest implements \Auth\Adapter
+class DigestAdapter implements \Auth\Adapter
 {
 
     /**
@@ -32,6 +32,13 @@ class Digest implements \Auth\Adapter
      */
     protected $password;
 
+    /**
+     *
+     * @param string $filename
+     * @param string $realm
+     * @param string $username
+     * @param string $password 
+     */
     public function __construct($filename = null, $realm = null, $username = null, $password = null)
     {
         $this->filename = $filename;
@@ -40,50 +47,90 @@ class Digest implements \Auth\Adapter
         $this->password = $password;
     }
 
+    /**
+     *
+     * @return string
+     */
     public function getFilename()
     {
         return $this->filename;
     }
 
+    /**
+     *
+     * @param string $filename
+     * @return DigestAdapter 
+     */
     public function setFilename($filename)
     {
         $this->filename = $filename;
         return $this;
     }
 
+    /**
+     *
+     * @return string 
+     */
     public function getRealm()
     {
         return $this->realm;
     }
 
+    /**
+     *
+     * @param string $realm
+     * @return DigestAdapter 
+     */
     public function setRealm($realm)
     {
         $this->realm = $realm;
         return $this;
     }
 
+    /**
+     *
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
+    /**
+     *
+     * @param string $username
+     * @return DigestAdapter 
+     */
     public function setUsername($username)
     {
         $this->username = $username;
         return $this;
     }
 
+    /**
+     *
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     *
+     * @param string $password
+     * @return DigestAdapter 
+     */
     public function setPassword($password)
     {
         $this->password = $password;
         return $this;
     }
 
+    /**
+     *
+     * @return Result 
+     */
     public function authenticate()
     {
         $requiredOptions = array('filename', 'realm', 'username', 'password');
