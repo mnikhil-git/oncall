@@ -30,6 +30,14 @@
                         <li class="active"><a href="{{ app.request.baseUrl }}">Home</a></li>
                         <li><a href="{{ app.request.baseUrl }}/hello/Eric">Hello</a></li>
                         <li><a href="{{ app.request.baseUrl }}/users">Users</a></li>
+                    
+                    </ul>
+                    <ul class="nav secondary-nav">
+                    {% if app.auth.hasIdentity %}
+                            <li class=""><a href="{{ app.request.baseUrl }}/logout">Logout</a></li>
+                    {% else %}
+                            <li class=""><a href="{{ app.request.baseUrl }}/login">Login</a></li>
+                    {% endif %}
                     </ul>
                 </div>
             </div>

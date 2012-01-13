@@ -2,7 +2,7 @@
 
 namespace Entity;
 
-/** 
+/**
  * @Entity(repositoryClass="Entity\Repository\UserRepository") 
  * @Table(name="users") 
  */
@@ -20,6 +20,12 @@ class User
 
     /** @Column(type="string", length=255) */
     private $password;
+
+    /** @Column(type="string", length=255) */
+    private $firstname;
+
+    /** @Column(type="string", length=255) */
+    private $lastname;
 
     public function getId()
     {
@@ -44,6 +50,26 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
     }
 
 }

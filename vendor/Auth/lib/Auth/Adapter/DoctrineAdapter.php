@@ -262,7 +262,7 @@ class DoctrineAdapter implements \Auth\Adapter
         {
             $exception = 'The column name that contains the user\'s password must be specified.';
         }
-        elseif ($this->userEntity == '')
+        elseif ($this->username == '')
         {
             $exception = 'A value for the username was not provided prior to authentication.';
         }
